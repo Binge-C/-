@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+</head>
+<script src="ionic/js/ionic.bundle.js"></script>
+<link rel="stylesheet" href="ionic/css/ionic.css" />
+
+<body>
+    <div ng-controller="indexCtrl">
+        <ion-checkbox ng-model="isChecked" ng-click="zz()">{{isChecked}}</ion-checkbox>
+        <ion-checkbox ng-model="isChecked">你好</ion-checkbox>
+        <ion-checkbox ng-model="isChecked">你好</ion-checkbox>
+        <ion-radio ng-model="choice" ng-value="A">Choose A</ion-radio>
+        <ion-radio ng-model="choice" ng-value="B">Choose B</ion-radio>
+        <ion-radio ng-model="choice" ng-value="C">Choose C</ion-radio>
+    </div>
+</body>
+<script>
+var app = angular.module('ionicApp', ['ionic']);
+app.controller('indexCtrl', ['$scope', function($scope) {
+    $scope.name = 'ionic';
+    $scope.title = '标题';
+    $scope.isChecked = false;
+    $scope.isSelect = false;
+    $scope.zz = function() {
+        $scope.isChecked != $scope.isChecked;
+
+        console.log($scope.isChecked);
+    }
+
+}])
+</script>
+
+</html>

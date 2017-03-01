@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ionicApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>加载动画</title>
+    <link rel="stylesheet" href="ionic/css/ionic.css">
+    <style>
+    .rotate {
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        animation: rotateImg .5s infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes rotateImg {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!--如果我们相中哪一个头部，直接复制粘贴-->
+    <div ng-controller="indexCtrl">
+    </div>
+</body>
+<script src="ionic/js/ionic.bundle.js"></script>
+<script>
+var app = angular.module('ionicApp', ['ionic']);
+app.controller('indexCtrl', ['$scope', '$timeout', '$http', '$ionicLoading', function($scope, $timeout, $http, $ionicLoading) {
+    console.log($ionicLoading);
+    $ionicLoading.show({
+        template: '<img src="0228/image/1.jpg" class="rotate" />'
+    })
+    $timeout(
+        function() {
+            $ionicLoading.hide()
+        }, 10000)
+}])
+</script>
+
+</html>
